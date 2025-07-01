@@ -43,7 +43,7 @@ const FileIcon = () => <span>📄</span>;
 const ChatIcon = () => <span>💬</span>; // Icon for Co-pilot
 
 
-const genAI = new GoogleGenerativeAI(localStorage.getItem('geminiApiKey') || process.env.API_KEY||'AIzaSyBgcWvdOTpCXlxPu11LtOLqjxpDa9Yi6Eo');
+const genAI = new GoogleGenerativeAI(localStorage.getItem('geminiApiKey') || process.env.API_KEY );
 const model = genAI.getGenerativeModel({ model: process.env.API_VERSION || "gemini-2.0-flash"});
 let chatHistory = [];
 
