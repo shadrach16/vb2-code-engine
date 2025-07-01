@@ -497,7 +497,7 @@ function cleanJsonWhitespace(jsonString) {
 
 
 async function generateText(prompt, retries = 0) {
-    const genAI = new GoogleGenerativeAI(localStorage.getItem('geminiApiKey') || process.env.API_KEY || 'AIzaSyDvMNn215gSXGpjXH8Lb1Y7hScd1NMh32M');
+    const genAI = new GoogleGenerativeAI(localStorage.getItem('geminiApiKey') || process.env.API_KEY );
     const model = genAI.getGenerativeModel({ model: process.env.API_VERSION || "gemini-2.0-flash" });
 
     try {
