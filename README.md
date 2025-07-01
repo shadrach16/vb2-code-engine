@@ -30,7 +30,7 @@ Our mission with `vb2 Coder` is to democratize software creation. By automating 
 
 ## ⚙️ How It Works (High-Level)
 
-`vb2 Coder` operates on a sophisticated AI model trained to understand natural language prompts and architectural patterns. When a request is made (either through a direct prompt or via a structured input like our Micro-Service Marketplace):
+`vb2 Coder` operates on a Gemini AI model to understand natural language prompts and architectural patterns. When a request is made (either through a direct prompt or via a structured input like our Micro-Service Marketplace):
 
 1.  **Idea Interpretation:** The AI processes the request, breaking it down into core functionalities and technical requirements.
 
