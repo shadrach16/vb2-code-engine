@@ -1,0 +1,474 @@
+/* Base body styling (adjust if your main layout already handles this) */
+body {
+    background-color: #111; /* Very dark background */
+    color: #eee; /* Light text */
+    font-family: sans-serif; /* Or Geist Sans if available */
+    margin: 0; /* Reset default margin */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* --- Overall Code Viewer/Editor Container --- */
+.code-viewer-container {
+    display: flex;
+    flex-direction: column; /* Arrange header and content vertically */
+    height: 93.7vh; /* Example height, adjust as needed */
+    width: 100%;
+    overflow: hidden; /* Prevent overflow issues */
+    border: 0px solid #ccc; /* Optional: Add a border */
+    background-color: #272822; /* Match monokai background - this might be the editor background */
+    color: #f8f8f2; /* Match monokai foreground - this might be the editor text color */
+}
+
+.code-viewer-header {
+    padding: 8px 12px;
+    background-color: #1e1e1e; /* Darker header background, closer to Vercel dark */
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.code-viewer-header button {
+    padding: 5px 10px;
+    background-color: #0070f3; /* Vercel blue button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.code-viewer-header button:hover:not(:disabled) {
+    background-color: #005ac1; /* Darker Vercel blue on hover */
+}
+
+.code-viewer-header button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* --- Content Area (File Tree + Editor/Tools) --- */
+.code-viewer-content {
+    display: flex; /* Arrange sidebar and editor/tool area horizontally */
+    flex-grow: 1; /* Allow content area to fill remaining space */
+    overflow: hidden; /* Keep content contained */
+    /* height: 75vh; removed as flex-grow 1 handles height */
+}
+
+/* --- File Tree Sidebar Styles --- */
+.file-tree-sidebar {
+    width: 250px; /* Fixed width for the file tree sidebar */
+    background-color: #2d2d30; /* Darker background for file tree */
+    border-right: 1px solid #333;
+    overflow-y: auto; /* Enable scrolling for the file tree */
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+    padding: 10px 0; /* Add some padding */
+}
+
+.file-tree-title {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0 10px 10px 10px;
+    color: #bbb; /* Lighter color for title */
+    margin: 0;
+}
+
+.file-tree {
+    /* Styles for the main tree container if needed */
+}
+
+.file-tree-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px; /* Adjusted padding */
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
+    color: #ccc; /* Default text color */
+}
+
+.file-tree-item:hover {
+    background-color: #3c3c3c; /* Hover background */
+}
+
+.file-tree-selected {
+    background-color: #094771; /* Selected background color (VS Code-like blue) */
+    color: #fff; /* White text for selected item */
+}
+
+/* Indentation classes */
+.file-tree-indent-level-1 { padding-left: 20px; }
+.file-tree-indent-level-2 { padding-left: 35px; }
+.file-tree-indent-level-3 { padding-left: 50px; }
+/* Add more levels as needed or use inline style `paddingLeft: ${level * 15}px` */
+
+.file-tree-folder-toggle strong {
+    font-weight: normal; /* Use normal weight for folder names */
+}
+
+.file-icon-folder,
+.file-icon-file {
+    /* Styles for the SVG icons - ensure fill matches text color or accent */
+    fill: #777; /* Icon color */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.file-tree-selected .file-icon-folder,
+.file-tree-selected .file-icon-file {
+    fill: #fff; /* White icons for selected item */
+}
+
+/* --- Editor and Tool Display Area --- */
+.editor-container {
+    display: flex;
+    flex-direction: column; /* Tabs on top of editor/tool */
+    flex-grow: 1; /* Allow editor area to fill remaining width */
+    overflow: hidden; /* Important to prevent editor/tool overflow */
+    background-color: #272822; /* Background for the editor/tool area */
+}
+
+.file-tabs-container {
+    display: flex;
+    background-color: #252526; /* Background for tabs */
+    border-bottom: 1px solid #333;
+    flex-shrink: 0; /* Prevent tabs from shrinking */
+    overflow-x: auto; /* Enable horizontal scrolling for many tabs */
+    /* Hide scrollbar for a cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.file-tabs-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.file-tab {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px; /* Adjusted padding */
+    cursor: pointer;
+    border-right: 1px solid #333;
+    background-color: #2d2d30; /* Default tab background */
+    color: #bbb; /* Default tab text color */
+    transition: background-color 0.15s ease;
+    flex-shrink: 0; /* Prevent tabs from squeezing */
+    position: relative; /* Needed for dirty indicator positioning */
+}
+
+.file-tab:hover {
+    background-color: #3c3c3c;
+}
+
+.file-tab-active {
+    background-color: #1e1e1e; /* Active tab background, closer to Vercel dark */
+    color: #fff; /* Active tab text color */
+    border-bottom: 2px solid #007acc; /* Highlight line under active tab (VS Code blue) */
+    padding-bottom: 4px; /* Adjust padding to account for border */
+}
+
+.file-tab-name {
+    margin-right: 8px; /* Space between name and close button */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Limit tab name width if needed */
+}
+
+.file-tab-close {
+    background: none;
+    border: none;
+    color: #bbb; /* Color of the close button */
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+    padding: 0;
+    margin-left: 5px; /* Space between name and close button */
+    transition: color 0.15s ease;
+}
+
+.file-tab-close:hover {
+    color: #fff; /* White on hover */
+}
+
+.file-tab-active .file-tab-close {
+    color: #fff; /* White close button on active tab */
+}
+
+.file-tab-dirty-indicator {
+    color: #ffc107; /* Example color for dirty indicator (yellow/orange) */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 4px; /* Space before the close button */
+    /* Optional: Position more precisely if needed */
+    /* position: absolute; */
+    /* top: 2px; */
+    /* right: 2px; */
+}
+
+/* Styles for the Ace Editor instance */
+.ace_editor {
+    width: 100% !important; /* Ensure editor fills container */
+    height: 100% !important; /* Ensure editor fills container */
+    /* Ace editor themes handle internal colors, but container background can affect edges */
+    background-color: #272822; /* Match editor-container background */
+}
+
+.no-file-message {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #777;
+    background-color: #272822; /* Match editor background */
+}
+
+
+.vercel-dark-tool-container {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex
+;
+    flex-direction: column;
+    /* background-color: #1e1e1e; */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    flex-grow: 1;
+}
+
+.tool-content-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 6px;
+    /* background-color: #1e1e1e; */
+    color: #eee;
+    flex-shrink: 0;
+    width: 22vw;
+}
+
+
+.tool-content-wrapper > .vercel-dark-chat-container {
+    height: 88%;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0;
+}
+/* --- Vercel Dark Theme Chat Copilot Styles --- */
+/* This is the container specific to the chat layout within the sidebar */
+.vercel-dark-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    /* Background, border-radius, shadow, overflow handled by .vercel-dark-tool-container or .tool-content-wrapper */
+}
+
+/* Inner panel to manage header, messages, input flex distribution */
+.vercel-dark-chat-panel {
+     display: flex;
+     flex-direction: column;
+     height: 100%; /* Should fill the vercel-dark-chat-container height */
+     width: 100%; /* Ensures the panel fills the container's width */
+}
+
+/* Updated .chat-header to include flex properties for icon alignment */
+.chat-header {
+    padding: 13px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    flex-shrink: 0;
+    color: #ccc;
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+    gap: 8px; /* Add space between icon and text */
+    margin-bottom: 0; /* Reset margin if present */
+}
+
+/* Styles for the Copilot icon */
+.copilot-icon {
+    font-size: 1.1em; /* Make the icon a bit larger */
+    color: #0070f3; /* Vercel blue for a catchy look */
+    line-height: 1; /* Helps with vertical alignment */
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.chat-messages {
+    flex-grow: 1; /* Allows messages area to fill space */
+    overflow-y: auto; /* Enable scrolling for messages */
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between messages */
+        margin-top: 15px;
+            height: 70vh;
+}
+
+/* Style for individual messages */
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    max-width: 90%; /* Message bubble width relative to its container (now narrower sidebar) */
+}
+
+.message-icon {
+    font-size: 1.2em;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.message-bubble {
+    padding: 5px 10px;
+    border-radius: 18px;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+/* Specific styles for user messages */
+.user-message {
+    align-self: flex-end; /* Align user messages to the right */
+    flex-direction: row-reverse; /* Reverse order for icon on right */
+}
+
+.user-message .message-icon {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+.user-message .message-bubble {
+    background-color: #0070f3; /* Vercel blue */
+    color: #fff;
+    border-bottom-right-radius: 4px; /* Less rounded on the bottom-right corner */
+        font-size: 13px;
+}
+
+/* Specific styles for AI messages */
+.ai-message .message-bubble {
+    background-color: #333; /* Darker grey bubble */
+    color: #eee;
+    border-bottom-left-radius: 4px; /* Less rounded on the bottom-left corner */
+        font-size: 13px;
+}
+
+/* Loading indicator style */
+.ai-message.loading .message-bubble {
+    font-style: italic;
+    color: #aaa;
+        font-size: 13px;
+}
+
+/* Chat Input Area */
+.chat-input-area {
+    padding: 6px;
+    border-top: 1px solid #333;
+    display: flex;
+    flex-shrink: 0; /* Prevent input area from shrinking */
+}
+
+.chat-input-area input[type="text"] {
+    flex-grow: 1; /* Input takes up most space */
+    padding: 10px 14px;
+    border: 1px solid #555; /* Subtle border */
+    border-radius: 9px; /* Pill shape */
+    background-color: #2a2a2a; /* Dark input background */
+    color: #eee; /* Light input text */
+    margin-right: 12px;
+    outline: none; /* Remove default outline */
+    transition: border-color 0.2s ease-in-out;
+    height: 90px;
+}
+
+.chat-input-area input[type="text"]:focus {
+    border-color: #0070f3; /* Highlight color on focus */
+}
+
+.chat-input-area input[type="text"]::placeholder {
+    color: #888; /* Placeholder color */
+}
+
+.chat-input-area button {
+    padding: 10px 20px;
+    background-color: #0070f3; /* Vercel blue */
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Pill shape */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.chat-input-area button:hover:not(:disabled) {
+    background-color: #005ac1; /* Darker blue on hover */
+}
+
+.chat-input-area button:disabled {
+    background-color: #0070f3;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Ensures the scroll ref div doesn't add extra space at the bottom */
+.chat-messages > div:last-child {
+    padding-bottom: 0;
+}
+
+.ace_editor, .ace_editor *{
+font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", monospace !important;
+font-size: 15px !important;
+font-weight: 400 !important;
+letter-spacing: 0 !important;
+}
+
+
+
+
+.simple-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}

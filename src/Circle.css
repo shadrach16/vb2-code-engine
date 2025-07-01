@@ -1,0 +1,45 @@
+/* Circle.css */
+.circle {
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(circle at center, green, blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+/* Circle.css */
+.circle-0 {
+  width: 34px;
+  height: 34px; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+/* Circle.css */
+.hover-circle:hover {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+.circle-small {
+  width: 6px;
+  height: 6px; 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}

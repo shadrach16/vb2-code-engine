@@ -1,0 +1,50 @@
+/* App.css */
+
+/* ... (Keep your existing styles from previous refactorings) ... */
+
+/* Horizontal Loader Container */
+.horizontal-loader-container {
+    width: 100%;
+    background-color: #eee; /* Background color for the empty part */
+    border-radius: 20px; /* Adjust radius for sleek pill shape */
+    height: 20px; /* Adjust height */
+    overflow: hidden;
+    position: relative; /* Needed for absolute positioning of the label */
+    margin: 3px 0; /* Add some margin above/below */
+}
+
+/* CSS Keyframes for the wave effect */
+@keyframes waveAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Progress Bar (animated part) */
+.progress-bar {
+    height: 100%; /* Fill the container height */
+    border-radius: 20px; /* Match container border-radius */
+    /* Apply the gradient and wave animation */
+    background: linear-gradient(90deg, gray, black); /* Gradient colors */
+    background-size: 200% 200%; /* Make gradient wider for animation */
+    animation: waveAnimation 2s infinite ease-in-out; /* Apply the CSS animation */
+    /* Framer motion will animate the 'width' */
+}
+
+/* Loader Label */
+.loader-label {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 0;
+    right: 0;
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    text-align: center;
+    font-size: 0.875rem; /* sm equivalent */
+    color: white; /* Darker text color */
+    font-weight: bold; /* Make label stand out */
+    z-index: 1; /* Ensure label is above the bar */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis if needed */
+    padding: 0 5px; /* Add padding to prevent text touching edges */
+}

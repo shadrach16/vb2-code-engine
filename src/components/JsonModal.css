@@ -1,0 +1,61 @@
+/* src/components/JsonModal.css */
+.json-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.json-modal-content {
+  background-color: #fefefe;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 80%; /* Adjust as needed */
+  max-height: 85%; /* Adjust as needed */
+  overflow-y: auto; /* Enable scrolling for large content */
+  width: 100%; /* Take full width of max-width */
+  display: flex;
+  flex-direction: column;
+}
+
+.json-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.json-modal-header h2 {
+  margin: 0;
+  font-size: 1.8em;
+  color: #333;
+}
+
+.json-modal-close-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #aaa;
+  line-height: 1; /* Prevent extra space below the x */
+  padding: 0 5px;
+}
+
+.json-modal-close-button:hover {
+  color: #666;
+}
+
+.json-modal-body {
+  flex-grow: 1; /* Allows body to take up remaining space */
+  overflow-y: auto; /* For the JSON content itself */
+  /* Add padding if needed for internal scrollbar */
+}

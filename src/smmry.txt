@@ -1,0 +1,113 @@
+ 
+
+
+ const largeText = `Your large text goes here...`;
+  const MAX_TOKENS = 40;  // Adjust based on Gemini's prompt size limit
+  const API_ENDPOINT = 'https://api.gemini.ai/v1/summarize';   
+  const API_KEY = 'your-api-key-here';  
+
+
+
+
+
+
+
+
+
+
+  // Function to split the text into paragraphs or semantic chunks
+  function splitTextIntoParagraphs(text) {
+    const paragraphs = text.split('\n');   
+    const parts = [];
+    let currentPart = '';
+
+    for (const paragraph of paragraphs) {
+      if ((currentPart + paragraph).length > MAX_TOKENS) {
+        parts.push(currentPart);   
+        currentPart = '';   
+      }
+      currentPart += paragraph + '\n\n';   
+    }
+
+    if (currentPart.trim()) {
+      parts.push(currentPart);  
+    }
+
+    return parts;
+  }
+
+
+
+
+
+
+
+
+  // Function to summarize a single part of the text with Gemini AI
+  async function summarizeWithGemini(part) {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`,
+    };
+
+    const body = JSON.stringify({
+      prompt: part,
+      model: "gemini-1.0",     
+    });
+
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: headers,
+        body: body,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.result;  // Assuming 'result' contains the summarized text
+    } catch (error) {
+      console.error('Error summarizing with Gemini AI:', error);
+      return null;
+    }
+  }
+
+
+
+
+
+
+
+
+  // Function to recursively summarize text parts
+  async function recursiveSummarize(parts) {
+    const summarizedParts = [];
+    for (const part of parts) {
+      const summary = await summarizeWithGemini(part);
+      if (summary) {
+        summarizedParts.push(summary);
+      }
+    }
+
+    const combinedSummary = summarizedParts.join(' ');   
+    if (combinedSummary.length > MAX_TOKENS) {
+      const secondPassParts = splitTextIntoParagraphs(combinedSummary);
+      return await recursiveSummarize(secondPassParts);  
+    }
+
+    return combinedSummary;  
+  }
+
+
+
+
+
+
+
+  const initialParts = splitTextIntoParagraphs(largeText);
+  await recursiveSummarize(initialParts);
+ 
+
+ 

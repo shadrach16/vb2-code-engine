@@ -1,0 +1,631 @@
+/***    General     ***/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif
+}
+
+body {
+    margin: 0 auto;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+.m-5-auto {
+    margin: 5rem auto
+}
+
+.primary-button {
+    margin-top: 5rem;
+    margin-right: 1rem;
+    padding: .6rem;
+    width: 10rem;
+    background: #222;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all .5s;
+    cursor: pointer;
+    text-transform: capitalize
+}
+
+/***    Landing Page     ***/
+.main-title,
+.main-para {
+    color: #f1f1f1
+}
+
+.main-title {
+    padding-top: 3rem;
+/*    font-family: 'Fascinate', cursive;*/
+    font-size: 45px;
+    font-weight: 300;
+    line-height: 1.2;
+        font-family: "open sans",arial,sans-serif;
+}
+
+.fascinate {
+    font-family: 'Fascinate', cursive;
+}
+
+.main-para {
+ font-weight: 600;
+    font-size: 22px;
+        font-family: calibri;
+    line-height: 1.5;
+    color: silver;
+
+}
+
+#reg_btn span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#reg_btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#reg_btn:hover span {
+  padding-right: 25px;
+}
+
+#reg_btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/***    Login Page     ***/
+h2 {
+    font-weight: 300;
+    text-align: center; /* Center the heading */
+    color: #333; /* Darker text for contrast */
+    margin-bottom: 20px; /* Add spacing below heading */
+}
+
+form {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: stretch; /* Stretch items to fill the form width */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners */
+    padding: 2rem;
+    margin: 2rem auto 1rem auto; /* Centered with margin */
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Maximum width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+form label {
+    font-size: .9rem;
+    margin-bottom: 0.5rem; /* Add spacing below labels */
+    color: #555; /* Darker text for labels */
+    text-align: left;
+}
+
+.right-label {
+    cursor: pointer;
+    color: #007bff; /* Blue color for right labels */
+    text-align: right;
+    margin-bottom: 1rem; /* Spacing below "Forgot Password?" */
+}
+
+input {
+    width: 100%; /* Full width */
+    padding: 0.75rem;
+    margin-bottom: 1.5rem; /* Add spacing below inputs */
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc; /* Light gray border */
+    font-size: 1rem;
+    color: #333;
+}
+
+input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Subtle shadow on focus */
+}
+
+#sub_btn {
+    display: block;
+    width: 100%;
+    padding: .75rem;
+    border: none;
+    background: #007bff; /* Blue button */
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#sub_btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transition: all .5s
+}
+
+footer p {
+    margin: 0;
+    font-size: .9rem
+}
+
+/***    Register Page     ***/
+#checkbox {
+    width: 1rem
+}
+
+form span {
+    font-size: .8rem
+}
+
+#reset_pass_lbl {
+    float: left
+}
+
+/***    Home Page     ***/
+.home-page-title {
+    color: #222
+}
+
+/* CSS */
+.button-63 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+
+}/* CSS */
+.button-62 {
+  align-items: center;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 16px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 70px;
+  padding: 10px 19px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  background: black;
+}
+
+.button-62:active,
+.button-62:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-63 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+
+ 
+.maia-cols {
+ 
+    width: 103.067484663%;
+}
+
+
+
+ 
+.maia-col-4 {
+    width: 30.3571428571%;
+}
+.maia-col-1, .maia-col-2, .maia-col-3, .maia-col-4, .maia-col-5, .maia-col-6, .maia-col-7, .maia-col-8, .maia-col-9, .maia-col-10, .maia-col-11, .maia-col-12 {
+    float: left;
+    margin: 0 1.4880952381% 20px;
+}
+ 
+
+.header-ps {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.st0 {
+    fill:"#000000";
+} 
+
+
+
+
+/* For WebKit based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #071147; /* Background color of the track */
+  border-radius: 3px; /* Rounded corners of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 3px; /* Rounded corners of the thumb */
+}
+
+/* For Firefox */
+/* Note: Firefox supports scrollbar customization from version 64 onwards */
+/* You may need to add vendor prefixes for earlier versions */
+/* See: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars */
+
+/* Example styles for Firefox scrollbar */
+* {
+  scrollbar-width: thin; /* or auto */
+  scrollbar-color: #071147 #f1f1f1; /* Color of the scrollbar thumb and track */
+}
+
+.hover:hover {
+    background-color: green !important;
+}
+
+
+pre { white-space: pre-wrap !important;
+background-color:white !important;
+padding: 30px !important;
+/*line-height: 40px !important;*/
+ }
+
+
+ 
+.big_button {
+
+                display: inline-block;
+                outline: 0;
+                border: 1px solid green;
+                cursor: pointer;
+                font-weight: bold;
+                color: green;
+                font-size: 20px;
+                height: 38px;
+                padding: 8px 24px;
+                border-radius: 50px;
+                transition: all .2s ease-out;
+                :hover{
+                border-radius: 50px;
+                    padding: 2px;
+                }
+                
+ }
+
+
+
+.code-box {
+  width: 100%; 
+  max-height: 300px;
+   min-height: 150px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding-top: 10px;
+  padding-right: 10px;
+  font-family: monospace;
+  white-space: pre;
+ 
+}
+.code_structure textarea {
+  padding: 4px !important;
+  width: 100%; 
+  max-height: 300px;
+   min-height: 150px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  font-family: monospace;
+  white-space: pre;
+ 
+}
+
+.htmlparser  {
+        font-family: 'Noto Sans JP', serif;
+}
+.htmlparser ol li  {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.htmlparser ul li  {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.htmlparser  h4,h5,h6 {
+    padding-top: 10px; 
+}
+
+
+ 
+ .code_structure ol li  {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+    border-left: 1px solid silver;
+}
+
+.code_structure ul li  {
+    margin-top: 2px;
+    margin-bottom: 0px;
+    border-left: 1px solid silver;
+    padding-left: 7px;
+}
+
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+ 
+
+ /* Basic container for the component */
+.document-upload-container {
+  margin: 20px auto; /* Center the container */
+  font-family: sans-serif; /* Use a common font */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflowing content */
+  background-color: #fff; /* White background */
+}
+
+/* Styles for the tabs container */
+.document-upload-tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc; /* Separator line below tabs */
+}
+
+/* Styles for individual tab buttons */
+.document-upload-tab {
+  flex-grow: 1; /* Tabs take equal width */
+  padding: 12px 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 2px solid transparent; /* Underline for active state */
+  text-align: center;
+  color: gray;
+}
+
+/* Styles for the active tab */
+.document-upload-tab.active {
+  color: black; /* Highlight color for active tab */
+  border-bottom-color: gray; /* Highlight underline */
+}
+
+/* Hover effect for tabs */
+.document-upload-tab:hover:not(.active) {
+  color: gray; /* Darker color on hover */
+}
+
+/* Styles for the tab content area */
+.document-upload-tab-content {
+  padding: 20px;
+}
+
+/* Styles for the upload dropzone */
+.document-dropzone {
+  border: 2px dashed gray; /* Dashed blue border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 30px; /* More padding */
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  background-color: #f8f9fa; /* Light background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for the dropzone when dragging a file over it */
+.document-dropzone.drag-active {
+  border-color: #28a745; /* Green border when dragging */
+  background-color: #e9f7ef; /* Lighter green background */
+}
+
+/* Styles for the upload icon area (contains the SVG or spinner) */
+.upload-icon-area {
+    margin-bottom: 7px; /* Space below the icon */
+}
+
+/* Styles for the loading spinner */
+.loading-spinner {
+    width: 64px; /* Ensure consistent size */
+    height: 64px;
+    margin-bottom: 15px; /* Space below the spinner */
+}
+
+
+/* Styles for the text inside the dropzone */
+.dropzone-text {
+  margin-top: 0; /* Remove default paragraph margin */
+  margin-bottom: 5px; /* Space below the main text */
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Styles for the accepted formats text */
+.accepted-formats {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Styles for the file info display after upload */
+.uploaded-file-info {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    font-size: 0.9rem;
+}
+
+/* Styles for the file name within the file info */
+.file-name {
+    font-weight: bold;
+    color: #28a745; /* Success color */
+}
+
+
+/* Styles for the manual input textarea */
+.manual-textarea {
+  width: 100%;
+  padding: 10px;
+   border: 2px dashed gray; /* Dashed blue border */
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical; /* Allow vertical resizing */
+height: 100%; /* Minimum height */
+}
+
+/* Optional: Styles for placeholder text */
+.manual-textarea::placeholder {
+  color: #aaa;
+}
+
+/* Styles for the manual content display (if you uncommented it) */
+/*
+.manual-content {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  white-space: pre-wrap; // Preserve line breaks
+  word-wrap: break-word; // Break long words
+}
+.manual-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+*/
+
+
+/* Add these styles to your existing App.css file */
+
+/* Dark theme background */
+.dark-theme-background {
+    background: linear-gradient(to bottom right, #1a202c, #2d3748); /* Subtle gradient */
+    color: #e2e8f0; /* Default text color for the theme */
+}
+
+/* Sidebar background */
+.sidebar-background {
+    background-color: #2d3748; /* Darker shade for sidebar */
+    border-right: 1px solid #4a5568; /* Subtle border */
+}
+
+/* Custom Scrollbar for Webkit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #4a5568; /* Color of the track */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #718096; /* Color of the scroll thumb */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0; /* Color on hover */
+}
+
+/* Custom Scrollbar for Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #718096 #4a5568; /* thumb color track color */
+}
+
+
+/* Action Buttons (Create, Import, Generate) */
+.action-button {
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border-radius: 8px !important; /* Ensure rounded corners */
+}
+
+.action-button:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+/* Outline Button Specific Styles */
+.action-button.outline {
+    border: 1px solid #718096 !important; /* Custom border for outline */
+    color: #a0aec0 !important; /* Custom text color for outline */
+    background-color: transparent !important; /* Transparent background */
+}
+
+.action-button.outline:hover {
+    background-color: rgba(113, 128, 150, 0.1) !important; /* Subtle background on hover */
+    color: #e2e8f0 !important; /* Lighter text on hover */
+}
+
+/* Back Button */
+.back-button {
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(113, 128, 150, 0.1); /* Subtle hover effect */
+}
+
+
+/* Task Item Hover Effect */
+.task-item {
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.task-item:hover {
+    background-color: #4a5568; /* Slightly lighter background on hover */
+}
+
+/* Style for the react-steps component (adjust as needed based on its structure) */
+/* You might need to inspect the element to target specific parts */
+.react-steps-component {
+    /* Example: Adjust text color or spacing */
+}

@@ -1,0 +1,141 @@
+/* Styles for the main processing container */
+.processing-container {
+    background-color: #1e1f21 !important; /* Dark background */
+    color: #e2e8f0; /* Light text color */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 10; /* Center the container */
+}
+
+
+
+/* Styles for the processing header */
+.processing-header {
+    font-size: 1.25rem; /* Larger font size for header */
+    font-weight: bold; /* Bold text */
+}
+
+
+.description {
+width: 100%;
+overflow: hidden;
+margin: 0px;
+font-size: 13px;
+}
+/* Styles for the 'pending' checkmark icon */
+.task-item svg.bi-check-square {
+    color: #718096; /* Silver/grey color for pending */
+}
+
+/* Styles for the tooltip container */
+.task-tooltip {
+    position: absolute;
+    bottom: -1.5rem; /* Position below the task item */
+    right: 0; /* Align to the right */
+    background-color: #4a5568; /* Default background */
+    color: #e2e8f0; /* Text color */
+    padding: 0.25rem 0.5rem; /* Padding */
+    border-radius: 0.25rem; /* Rounded corners */
+    font-size: 0.75rem; /* Smaller font size */
+    white-space: nowrap; /* Prevent text wrapping */
+    z-index: 10; /* Ensure tooltip is above other content */
+    /* Initially hidden, show on hover if implemented in JS/React */
+    /* opacity: 0; */
+    /* transition: opacity 0.3s ease; */
+}
+
+/* Modifier class for loading status */
+.task-tooltip.loading {
+    background-color: #f6e05e; /* Yellow for loading */
+    color: #2d3748; /* Darker text for contrast */
+}
+
+/* Modifier class for done status */
+.task-tooltip.done {
+    background-color: #48bb78; /* Green for done */
+    color: #1a202c; /* Darker text for contrast */
+}
+
+/* Modifier class for pending status */
+.task-tooltip.pending {
+    background-color: #718096; /* Grey for pending */
+    color: #1a202c; /* Darker text for contrast */
+}
+
+
+/* Utility classes (assuming Tailwind or similar is used, these are examples if not) */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.flex-gap-1 > * + * {
+    margin-left: 0.25rem; /* Example gap */
+}
+
+.flex-gap-4 > * + * {
+    margin-left: 1rem; /* Example gap */
+}
+
+
+.horizontal-loader-container {
+    width: 100%;
+    background-color: green;
+    border-radius: 20px;
+    height: 25px !important;
+    overflow: hidden;
+    position: relative;
+    margin: 3px 0;
+}
+
+.header-sec {
+	flex-direction: column;
+}
+
+.simple-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}

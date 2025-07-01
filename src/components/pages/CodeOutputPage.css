@@ -1,0 +1,59 @@
+/* App.css */
+
+/* ... (Keep the styles from the previous refactoring: body, layout helpers, spacing utilities, navbar styles, button styles, centering) ... */
+
+/* Add/Update Main Content Area Styles for CodeOutput */
+.main-content-area {
+    flex-grow: 1; /* Allow it to take remaining horizontal space if in a flex row */
+    display: flex;
+    flex-direction: column; /* Stack contents vertically */
+    padding: 1rem 1.5rem; /* Add padding around the code editor */
+    box-sizing: border-box;
+    width: 100%; /* Default to full width */
+    max-width: 1400px; /* Optional: max width for content */
+    margin: 0 auto; /* Center content if max-width is set */
+}
+
+/* Specific styles for the Project Title in Navbar */
+.project-title {
+    font-size: 1.2rem; /* Default size */
+    margin-bottom: 0; /* Remove default paragraph margin */
+    color: #666; /* Text color, gray equivalent */
+    font-family: "'Noto Sans JP', serif", sans-serif; /* Use specified font */
+    text-align: center; /* Center text */
+    margin-left: 1rem; /* Adjust spacing from brand/button */
+    margin-right: 1rem; /* Adjust spacing from actions */
+    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Responsive adjustment for project title font size */
+@media (max-width: 767px) { /* Portrait or smaller screens */
+    .project-title {
+        font-size: 1rem; /* Smaller size on small screens */
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
+
+/* Style for the icon next to the project title */
+.project-title-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor; /* Icon color matches text color */
+}
+
+/* Responsive adjustment for main content padding on small screens */
+@media (max-width: 767px) {
+     .main-content-area {
+        padding: 1rem 0.5rem; /* Reduce padding on small screens */
+        margin-top: 60px; /* Add space below fixed navbar */
+     }
+     /* Adjustments might be needed if the layout changes significantly */
+     /* For example, if the main content area needs to be full width and the sidebar hidden */
+    .container-layout { /* Assuming this is the parent flex container */
+        flex-direction: column; /* Stack elements vertically */
+    }
+}
